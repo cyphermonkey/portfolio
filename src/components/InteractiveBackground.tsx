@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,7 +9,7 @@ function DataPoints({ count = 2000, color = "#ff6e1a", radius = 2.5 }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   // Generate random points in a sphere that looks like a data cluster
-  const positions = useMemo(() => {
+  const [positions] = useState(() => {
     const p = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const theta = 2 * Math.PI * Math.random();
@@ -20,7 +20,7 @@ function DataPoints({ count = 2000, color = "#ff6e1a", radius = 2.5 }) {
       p[i * 3 + 2] = r * Math.cos(phi);
     }
     return p;
-  }, [count, radius]);
+  });
 
   useFrame((state) => {
     if (!pointsRef.current) return;

@@ -1,147 +1,189 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
-import Link from "next/link";
+import { TickerBar } from "@/components/TickerBar";
 
 export default function Education() {
+  const tickerItems = [
+    { key: "UNIVERSITY", value: "University of Delhi" },
+    { key: "DEGREE", value: "BCom Hons · 2024–2027" },
+    { key: "STANDING", value: "Top 10% · First Class" },
+    { key: "SCHOOL", value: "KV Janakpuri · CBSE 2024" },
+    { key: "OPEN TO", value: "Internships · Full-time Roles" },
+    { key: "EMAIL", value: "vs862876@gmail.com" },
+  ];
+
   return (
-    <main className="min-h-screen pt-24 pb-48 px-6 md:px-12 max-w-5xl mx-auto">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-16"
-      >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-[10px] font-bold tracking-widest uppercase mb-6">
-          Top 10%
-        </div>
-        <h1 className="text-5xl md:text-6xl font-display font-extrabold tracking-tighter mb-4">
-          Education & Contact.
-        </h1>
-        <p className="text-text-dim font-sans text-lg max-w-2xl">
-          Academic background and channels for collaboration, internships, or strategy consulting engagements.
-        </p>
-      </motion.div>
+    <>
+      <TickerBar label="EDU" color="blue" items={tickerItems} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        {/* Education Card 1 */}
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.5 }}
-           className="glass rounded-3xl p-8 relative overflow-hidden group hover:bg-card-hover transition-colors duration-300"
-        >
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-blue opacity-50 group-hover:opacity-100 transition-opacity" />
-          
-          <div className="mb-6">
-            <h2 className="text-2xl font-display font-bold text-white mb-1">Bachelor of Commerce (Hons)</h2>
-            <h3 className="text-accent-cyan font-medium mb-1">University of Delhi</h3>
-            <div className="font-mono text-[10px] tracking-widest text-text-muted">2024 – 2027 · Currently Enrolled</div>
-          </div>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] tracking-widest text-text-muted">STANDING</span>
-              <span className="text-sm text-accent-green font-medium">Top 10% · First Class with Distinction</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] tracking-widest text-text-muted">STREAM</span>
-              <span className="text-sm text-text-dim">Commerce with Specialization in Finance</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] tracking-widest text-text-muted">COURSEWORK</span>
-              <span className="text-sm text-text-dim leading-relaxed">Financial Analysis, Corporate Finance, Managerial Economics, Statistics, Cost Accounting, Business Law</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
-            <span className="px-3 py-1 font-mono text-[10px] tracking-wider bg-accent-green/10 border border-accent-green/20 text-accent-green rounded-full">TOP 10%</span>
-            <span className="px-3 py-1 font-mono text-[10px] tracking-wider bg-accent-blue/10 border border-accent-blue/20 text-accent-blue rounded-full">FIRST CLASS</span>
-          </div>
-        </motion.div>
-
-        {/* Education Card 2 */}
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.5, delay: 0.1 }}
-           className="glass rounded-3xl p-8 relative overflow-hidden group hover:bg-card-hover transition-colors duration-300"
-        >
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-cyan opacity-50 group-hover:opacity-100 transition-opacity" />
-          
-          <div className="mb-6">
-            <h2 className="text-2xl font-display font-bold text-white mb-1">Senior Secondary (CBSE)</h2>
-            <h3 className="text-text-dim font-medium mb-1">Kendriya Vidyalaya, Janakpuri</h3>
-            <div className="font-mono text-[10px] tracking-widest text-text-muted">Passed 2024</div>
-          </div>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] tracking-widest text-text-muted">STREAM</span>
-              <span className="text-sm text-text-dim">Commerce with Mathematics</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] tracking-widest text-text-muted">SUBJECTS</span>
-              <span className="text-sm text-text-dim">Accountancy, Business Studies, Economics, Mathematics, English</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5 mt-auto">
-            <span className="px-3 py-1 font-mono text-[10px] tracking-wider bg-white/5 border border-white/10 text-text-dim rounded-full">CBSE BOARD</span>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Contact Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="glass rounded-3xl p-8 md:p-12"
-      >
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+      <main className="mt-[14px]">
+        {/* Page Header */}
+        <div className="bg-card border border-border p-[14px] flex justify-between items-start mb-[14px]">
           <div>
-            <h3 className="text-2xl font-display font-bold mb-2">Connect with Vaibhav</h3>
-            <p className="text-text-muted text-sm">Open to internships, consulting opportunities, and finance roles.</p>
+            <h1 className="font-display font-extrabold text-[20px] text-foreground tracking-[0.5px] uppercase mb-[4px]">
+              Education <span className="text-text-muted italic">& Contact</span>
+            </h1>
+            <div className="font-mono text-[10px] text-text-muted tracking-[1px] uppercase">
+              EDU:006 · UNIVERSITY OF DELHI · 2024–2027
+            </div>
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-green/10 border border-accent-green/20 text-accent-green text-[10px] font-bold tracking-widest uppercase">
-            <span className="relative flex h-2 w-2 mr-1">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-green"></span>
+          <span className="bg-border text-foreground border border-border-lit px-[8px] py-[3px] text-[10px] font-bold tracking-[1px] uppercase whitespace-nowrap">
+            TOP 10%
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[14px] mb-[14px]">
+
+          {/* Edu Card 1 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="border border-border bg-bg relative overflow-hidden group hover:border-border-lit transition-colors flex flex-col"
+          >
+            <div className="p-[14px] border-b border-border bg-bg-alt">
+              <div className="font-display font-bold text-[18px] text-foreground tracking-[0.5px] mb-[2px]">
+                Bachelor of Commerce (Honours)
+              </div>
+              <div className="text-[13px] text-text-dim mb-[4px]">
+                University of Delhi
+              </div>
+              <div className="font-mono text-[10px] tracking-[1px] text-text-muted">
+                2024 – 2027 · Currently Enrolled
+              </div>
+            </div>
+
+            <div className="p-[14px] flex-1 flex flex-col gap-[6px] text-[12px]">
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">STANDING</span>
+                <span className="font-medium text-accent-green">Top 10% · First Class with Distinction</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">STREAM</span>
+                <span className="text-foreground">Commerce with Specialization in Finance</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">COURSEWORK</span>
+                <span className="text-foreground">Financial Analysis, Corporate Finance, Managerial Economics, Statistics, Cost Accounting, Business Law</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">ACTIVITIES</span>
+                <span className="text-foreground">NSS Member, CDF Fellow, Finance Society</span>
+              </div>
+            </div>
+
+            <div className="border-t border-border p-[10px_14px] flex flex-wrap gap-[6px] bg-bg-alt mt-auto">
+              <span className="px-[8px] py-[3px] border text-[10px] font-semibold tracking-[0.5px] whitespace-nowrap bg-accent-green/10 text-accent-green border-accent-green/20">TOP 10%</span>
+              <span className="px-[8px] py-[3px] border text-[10px] font-semibold tracking-[0.5px] whitespace-nowrap bg-accent-blue/10 text-accent-blue border-accent-blue/20">FIRST CLASS DISTINCTION</span>
+              <span className="px-[8px] py-[3px] border text-[10px] font-semibold tracking-[0.5px] whitespace-nowrap bg-accent-orange/10 text-accent-orange border-accent-orange/20">ENROLLED 2024–2027</span>
+            </div>
+          </motion.div>
+
+          {/* Edu Card 2 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="border border-border bg-bg relative overflow-hidden group hover:border-border-lit transition-colors flex flex-col"
+          >
+            <div className="p-[14px] border-b border-border bg-bg-alt">
+              <div className="font-display font-bold text-[18px] text-foreground tracking-[0.5px] mb-[2px]">
+                Senior Secondary (Class XII, CBSE)
+              </div>
+              <div className="text-[13px] text-text-dim mb-[4px]">
+                Kendriya Vidyalaya, Janakpuri
+              </div>
+              <div className="font-mono text-[10px] tracking-[1px] text-text-muted">
+                Passed 2024
+              </div>
+            </div>
+
+            <div className="p-[14px] flex-1 flex flex-col gap-[6px] text-[12px]">
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">BOARD</span>
+                <span className="text-foreground">Central Board of Secondary Education (CBSE)</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">STREAM</span>
+                <span className="text-foreground">Commerce with Mathematics</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">SUBJECTS</span>
+                <span className="text-foreground">Accountancy, Business Studies, Economics, Mathematics, English</span>
+              </div>
+              <div className="flex border-b border-border/50 pb-[4px]">
+                <span className="w-[90px] text-text-muted shrink-0">SCHOOL</span>
+                <span className="text-foreground">Kendriya Vidyalaya Sangathan, Janakpuri, New Delhi</span>
+              </div>
+            </div>
+
+            <div className="border-t border-border p-[10px_14px] flex flex-wrap gap-[6px] bg-bg-alt mt-auto">
+              <span className="px-[8px] py-[3px] border text-[10px] font-semibold tracking-[0.5px] whitespace-nowrap bg-accent-blue/10 text-accent-blue border-accent-blue/20">CBSE BOARD</span>
+              <span className="px-[8px] py-[3px] border text-[10px] font-semibold tracking-[0.5px] whitespace-nowrap bg-accent-cyan/10 text-accent-cyan border-accent-cyan/20">COMMERCE STREAM</span>
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Contact Section */}
+        <div className="bg-card border border-border mb-[14px]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between p-[16px] border-b border-border gap-[10px]">
+            <div>
+              <h2 className="font-display font-bold text-[16px] text-foreground tracking-[0.5px]">Connect with Vaibhav</h2>
+              <div className="text-[11px] text-text-dim mt-[4px]">Open to internships, consulting opportunities, and finance roles</div>
+            </div>
+            <span className="bg-accent-green/10 text-accent-green border border-accent-green/20 px-[8px] py-[3px] text-[10px] font-bold tracking-[1px] flex items-center gap-[6px] w-fit">
+              <span className="w-[6px] h-[6px] rounded-full bg-accent-green animate-pulse"></span>
+              OPEN TO OPPORTUNITIES
             </span>
-            Available Now
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 group/grid">
+            <ContactLink href="mailto:vs862876@gmail.com" label="EMAIL" value="vs862876@gmail.com" icon="✉" color="orange" />
+            <ContactLink href="https://www.linkedin.com/in/vaibhav-singh-finance" label="LINKEDIN" value="vaibhav-singh-finance" icon="in" color="blue" />
+            <ContactLink href="https://github.com/cyphermonkey" label="GITHUB" value="cyphermonkey" icon="⌥" color="purple" />
+            <ContactLink href="https://x.com/Xb42vaibha55760" label="TWITTER / X" value="@Xb42vaibha55760" icon="𝕏" color="cyan" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ContactCard href="mailto:vs862876@gmail.com" icon={<Mail />} label="EMAIL" value="vs862876@gmail.com" color="orange" />
-          <ContactCard href="https://www.linkedin.com/in/vaibhav-singh-finance" icon={<Linkedin />} label="LINKEDIN" value="vaibhav-singh-finance" color="blue" />
-          <ContactCard href="https://github.com/cyphermonkey" icon={<Github />} label="GITHUB" value="cyphermonkey" color="purple" />
-          <ContactCard href="https://x.com/Xb42vaibha55760" icon={<Twitter />} label="TWITTER" value="@Xb42vaibha55760" color="cyan" />
+        {/* Footer info text */}
+        <div className="flex justify-between items-center text-[10px] text-text-muted tracking-[0.5px] mt-[14px] uppercase border-t border-border pt-[14px]">
+          <span>VAIBHAV SINGH © 2026 · BCom Hons, University of Delhi</span>
+          <div className="flex items-center gap-[4px]">
+            <span>←</span><span>→</span> pages
+          </div>
         </div>
-      </motion.div>
-
-    </main>
+      </main>
+    </>
   );
 }
 
-function ContactCard({ href, icon, label, value, color }: { href: string; icon: React.ReactNode; label: string; value: string; color: string }) {
+function ContactLink({ href, icon, label, value, color }: { href: string; icon: string; label: string; value: string; color: string }) {
+  const colorMap: Record<string, string> = {
+    orange: "bg-accent-orange/10 text-accent-orange",
+    blue: "bg-accent-blue/10 text-accent-blue",
+    purple: "bg-accent-purple/10 text-accent-purple",
+    cyan: "bg-accent-cyan/10 text-accent-cyan",
+  };
+
   return (
-    <Link 
+    <a 
       href={href} 
       target="_blank" 
-      className={`flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group`}
+      rel="noopener noreferrer"
+      className="flex items-center gap-[12px] p-[16px] hover:bg-bg-hover border-b lg:border-r border-border last:border-r-0 last:border-b-0 sm:even:border-r-0 lg:even:border-r lg:border-b-0 transition-colors pointer-events-auto"
     >
-      <div className={`w-12 h-12 rounded-xl bg-accent-${color}/10 border border-accent-${color}/20 text-accent-${color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+      <div className={`w-[38px] h-[38px] shrink-0 rounded-[6px] flex items-center justify-center font-display font-black text-[18px] ${colorMap[color]}`}>
         {icon}
       </div>
       <div className="overflow-hidden">
-        <div className="font-mono text-[10px] tracking-widest text-text-muted mb-1">{label}</div>
-        <div className="text-sm font-medium text-white truncate">{value}</div>
+        <div className="font-mono text-[9px] text-text-muted tracking-[1px] mb-[3px]">{label}</div>
+        <div className="text-[12px] font-medium text-foreground truncate">{value}</div>
       </div>
-    </Link>
+    </a>
   );
 }

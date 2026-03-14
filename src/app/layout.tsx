@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Syne, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/components/FloatingNav";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { Topbar } from "@/components/Topbar";
 
-const inter = Inter({
-  variable: "--font-inter",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,10 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${syne.variable} ${ibmPlexMono.variable} font-mono antialiased text-[13px] leading-relaxed`}>
         <InteractiveBackground />
+        <Topbar />
         <SmoothScroll>
-          <div className="relative z-10">
+          <div className="relative z-10 w-full max-w-[1300px] mx-auto px-5 mb-20">
             {children}
           </div>
           <FloatingNav />
